@@ -1,0 +1,40 @@
+.navContainer{
+    position: sticky;
+    z-index: 3;
+    top: 0;
+}
+.navbar{
+    height:15vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(235, 145, 10) 0%, rgb(141, 99, 32) 5%, rgba(255,248,0,1) 100%);
+}
+.navbarLogo{
+    font-family:  'EB Garamond', serif;
+    font-size: 2rem;
+    justify-self: start;
+    margin: 30px;
+    margin-top: 4vh;
+    cursor: pointer;
+    color: black;
+}
+.option{
+    text-decoration: none;
+}
+#navLink {
+    
+    gap: 10px;
+    margin: 78px;
+    padding: 5px;
+    background: none;
+    border: 1px solid rgb(87, 55, 9);
+    border-radius:9px;
+    margin-top: 5.5vh;
+    color: black!important;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.navbarLogo:hover,
+#navLink:hover{
+    background: rgb(175, 177, 46);
+    border-radius: 9px;
+}

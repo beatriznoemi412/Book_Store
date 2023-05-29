@@ -1,0 +1,16 @@
+.loader {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  margin-right: 200px;
+ 
+}
+
+.loader img {
+  width: 50px;
+  height: 50px;
+ 
+}
+
+
+

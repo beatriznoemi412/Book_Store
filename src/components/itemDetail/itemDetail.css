@@ -1,0 +1,16 @@
+#cardTwelve{
+  margin-left: 400px;
+}
+.item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item-actions > * {
+    margin: 0.5rem 0;
+  }
+  #img{
+    height: 300px!important;
+  }
+  
