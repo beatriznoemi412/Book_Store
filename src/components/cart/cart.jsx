@@ -37,7 +37,7 @@ const Cart = () => {
       {cart.map((prod) => (
         <div key={prod.id} className="item-row">
           <div className="item">
-            <CartItem {...prod}  img={prod.img} handleRemove={ handleRemove} calculateItemSubtotal={calculateItemSubtotal}/>
+            <CartItem {...prod} handleRemove={ handleRemove} calculateItemSubtotal={calculateItemSubtotal}/>
           </div>
           <div className="remove-button">
             <button onClick={() => handleRemove(prod.id)}>
@@ -49,6 +49,7 @@ const Cart = () => {
         </div>
       ))}
       <div className="actions">
+      <div>
         <h3>Total: $ {total}</h3>
       </div>
       <div>
@@ -59,6 +60,7 @@ const Cart = () => {
       <Link to="/checkout" className="check">
         Checkout
       </Link>
+    </div>
     </div>
   )
       };

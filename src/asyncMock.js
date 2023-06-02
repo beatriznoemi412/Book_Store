@@ -1,7 +1,7 @@
 const products = [
     {
     id : "1",
-    title : "La Sirenita. Libro de arte bajo el mar.",
+    title : "La Sirenita. Libro de arte.",
     author : "Disney./De 6 a 8 años",
     price : 6700,
     category : "Infantiles",

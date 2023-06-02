@@ -1,10 +1,9 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 import { useEffect, useState } from "react";
 import { getProductById } from "../../asyncMock";
 import ItemDetail from "../itemDetail/itemDetail";
 import { useParams } from "react-router-dom";
-
+import "./itemDetailContainer.css";
 
 function ItemDetailContainer() {
     const [product, setProduct] = useState(null)
@@ -20,14 +19,14 @@ function ItemDetailContainer() {
             console.error(error)
            })
     }, [itemId])
+
     return (
-      <Row className="row-cols-lg-1">
-      <Col>
-    <div className=" col mb-1 ">
+  
+    <div className="item-detail-container">
         <ItemDetail {...product}/>
     </div>
-    </Col>
-       </Row>
+  
+      
   )
 }
 

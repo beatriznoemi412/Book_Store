@@ -1,9 +1,91 @@
-.img{
-    height: 350px !important;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
 }
-.card{
-box-shadow: 10px 8px 8px #371c0d;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 500px; 
+  height: 750px;
+  background-image: linear-gradient(rgb(213, 154, 28), rgb(220 242 56));
+  box-shadow: 0 7px 12px rgba(35, 9, 9, 0.937);
+  border-radius: 4px;
+  margin: 10px;
+  box-sizing: border-box;
 }
-.option{
-    color: white!important;
+
+.card .img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.card .card-body {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card .card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card .option {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: rgb(175, 177, 46);
+  color: #fff;
+  font-size: 1.3rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card .option:hover {
+  background-color: rgb(88, 112, 46);
+}
+
+.card h6 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Estilos responsivos */
+@media (min-width: 576px) {
+  .container {
+    height: auto;
+  }
+  
+  .card {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 70%;
+  }
 }

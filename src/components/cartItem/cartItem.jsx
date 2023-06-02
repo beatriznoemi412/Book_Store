@@ -1,3 +1,5 @@
+import "./cartItem.css";
+
 const CartItem = ({ title, img, price, amount, calculateItemSubtotal }) => {
   const subtotal = calculateItemSubtotal(price, amount);
 

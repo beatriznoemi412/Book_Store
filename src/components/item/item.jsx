@@ -1,29 +1,28 @@
-import "./item.css";
-import Card from "react-bootstrap/Card";
+import React from "react";
 import { Link } from "react-router-dom";
+import "./item.css";
 
 function Item({ id, title, author, price, category, img, stock }) {
   try {
     return (
-      <Card
-        className="card bg-warning mt-5"
-        style={{ width: "18rem", height: "40rem" }}
-      >
-        <Card.Img variant="top" src={img} className="img" />
-        <Card.Body>
-          <Card.Title className="text-center">{title}</Card.Title>
-          <Card.Text className="text-center">
-            <div>Autor: {author}</div>
-            <div>Precio: {price}</div>
-            <div>Categoría: {category}</div>
-            <div>Stock: {stock}</div>
+      <div className="container">
+      <div className="card">
+        <img src={img} alt={title} className="img" />
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <div className="card-details">
+            <h6>Autor: {author}</h6>
+            <h6>Precio: {price}</h6>
+            <h6>Categoría: {category}</h6>
+            <h6>Stock: {stock}</h6>
 
-            <Link to={`/item/${id}`} className="option text-center">
+            <Link to={`/item/${id}`} className="option">
               Ver Detalle
             </Link>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+          </div>
+        </div>
+      </div>
+      </div>
     );
   } catch (error) {
     console.error(error);

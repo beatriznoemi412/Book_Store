@@ -1,16 +1,65 @@
-#cardTwelve{
-  margin-left: 400px;
-}
-.item-actions {
+  .itContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border-radius: 20px;
+    background-color: #f0ea77;
+    margin: 0;
+    max-width: 300px;
+    height: 100vh;
+    
+  }
+  .itemSection{
+    width: 100%;
+    
+  }
+  .item-image {
+    margin: 20px 0 20px 70px;
+  }
+  
+  .item-image img {
+    max-width: 80%;
+    height: auto;
+  }
+  
+  .item-info {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
+  }
+  .linkEnd{
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: rgb(175, 177, 46);
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 4px;
+    text-decoration: none;
   }
   
-  .item-actions > * {
-    margin: 0.5rem 0;
+  .linkEnd:hover {
+    color: white;
+    background-color: rgb(88, 112, 46);
   }
-  #img{
-    height: 300px!important;
+
+  @media (min-width: 768px) {
+    .itContainer {
+      max-width: 400px;
+      height: auto;
+    }
+  
+    .item-image {
+      flex: 0 0 40%;
+      text-align: left;
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+  
+    .item-info {
+      flex: 0 0 60%;
+      text-align: left;
+    }
   }
   

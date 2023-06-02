@@ -1,13 +1,51 @@
-.amount{
-    margin: 20px;
-    background: none;
-    border: 1px solid rgb(87, 55, 9);
-    border-radius:9px;
-    margin-top: 5.5vh;
-    color: black!important;
-    font-size: 1.2rem;
-    text-decoration: none;
-}
-.amount:hover{
-    background: rgb(175, 172, 55);
-}
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .count div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .buttons {
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    padding: 10px;
+    font-size: 20px;
+    margin: 0 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+  }
+  .number{
+    font-size: 1.6rem;
+  }
+  h1 {
+    font-size: 24px;
+    margin: 0 20px;
+  }
+  
+  .amount {
+    padding: 8px 10px;
+    font-size: 1.4rem;
+    background-color: rgb(175, 177, 46);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+
+  }
+  .amount:hover{
+    background:  rgb(109, 165, 72);;
+  }
+  .amount:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

@@ -14,6 +14,8 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
+  console.log(cart);
+
   const calculateItemSubtotal = useCallback((amount, price) => {
     const itemQuantity = parseInt(amount);
     const itemPrice = parseFloat(price);

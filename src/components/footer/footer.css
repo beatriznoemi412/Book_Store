@@ -1,0 +1,80 @@
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 20vh; 
+    padding: 20px;
+    background: linear-gradient(
+    90deg,
+    rgb(235, 145, 10) 0%,
+    rgb(141, 99, 32) 5%,
+    rgba(255, 248, 0, 1) 100%
+  );
+  color: black;
+  }
+  .navbarLogo {
+    font-family: "EB Garamond", serif;
+    font-size: 2rem;
+    justify-self: start;
+    cursor: pointer;
+    color: black;
+  }
+  .networks{
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+  }
+
+  .msg:hover{
+    background:  rgb(219, 222, 80);
+    border-radius: 10px;
+  }
+  
+ /* Estilos para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+  footer {
+    display: flex;
+ 
+  }
+  footer h3 {
+    font-size: 18px;
+    
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
+
+/* Estilos para pantallas de 601px a 1024px de ancho */
+@media (min-width: 601px) and (max-width: 1024px) {
+  footer h1 {
+    font-size: 28px;
+  }
+  
+  footer h3 {
+    font-size: 20px;
+  }
+  
+  footer p {
+    font-size: 16px;
+  }
+}
+
+/* Estilos para pantallas de más de 1024px de ancho */
+@media (min-width: 1025px) {
+  footer h1 {
+    font-size: 32px;
+  }
+  
+  footer h3 {
+    font-size: 24px;
+  }
+  
+  footer p {
+    font-size: 18px;
+  }
+}

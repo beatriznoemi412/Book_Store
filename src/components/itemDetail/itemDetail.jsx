@@ -1,9 +1,8 @@
-import "./itemDetail.css";
-import Card from "react-bootstrap/Card";
-import ItemCount from "../itemCount/itemCount";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/cartContext";
+import ItemCount from "../itemCount/itemCount";
+import "./itemDetail.css";
 
 const ItemDetail = ({
   id,
@@ -13,51 +12,45 @@ const ItemDetail = ({
   category,
   img,
   stock,
-  description,
+  description
 }) => {
   const [amountEntered, setAmountEntered] = useState(0);
-   
-  const{ addItem } = useContext(CartContext);
-  
-  const handleEntered = (amount) =>{
-    setAmountEntered(amount)
+  const { addItem } = useContext(CartContext);
+
+  const handleEntered = (amount) => {
+    setAmountEntered(amount);
 
     const item = {
-      id, title, price
-    }
-   addItem (item, amount);
-   }
+      id,
+      title,
+      author,
+      price,
+      img,
+    };
+    addItem(item, amount);
+  };
 
   return (
-    <Card
-      className="card bg-warning mt-5"
-      id="cardTwelve"
-      style={{ width: "25rem", height: "56rem" }}
-    >
-      <Card.Img variant="top" src={img} className="img" id="img" />
-     
-      <Card.Body className="item-actions">
-        <div className="text-center">{title}</div>
-        <div className="text-center">
-          <div>Autor: {author}</div>
-          <div>Precio: {price}</div>
-          <div>Categoría: {category}</div>
-          <div>Stock: {stock}</div>
-          <div>Descripción: {description}</div>
-        </div>
-        
+    <div className="itContainer">
+      <section className="itemSection">
+      <div className="item-image">
+        <img src={img} alt={title} />
+      </div>
+
+      <div className="item-info">
+        <h2>{title}</h2> 
+        <div>Precio: {price}</div>
+        <div>Categoría: {category}</div>
+        <div>Descripción: {description}</div>
+
         {amountEntered > 0 ? (
-          <Link id="navLink" to="/cart" >Terminar Compra</Link>
+          <Link  to="/cart" className="linkEnd">Terminar Compra</Link>
         ) : (
-        <ItemCount
-          initial={1}
-          stock={stock}
-          onAdd={(handleEntered)}
-        />
-        )
-}
-      </Card.Body>
-    </Card>
+          <ItemCount initial={1} stock={stock} onAdd={handleEntered} />
+        )}
+      </div>
+      </section>
+    </div>
   );
 };
 

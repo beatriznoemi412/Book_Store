@@ -109,4 +109,9 @@
     color: black;
   background: rgb(172, 218, 104);
 }
-  
+ .actions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ } 

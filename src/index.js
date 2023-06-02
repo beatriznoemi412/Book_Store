@@ -10,7 +10,7 @@ import Navbar from "./components/navbar/navbar";
 import ItemListContainer from "./components/itemListContainer/itemListContainer";
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer";
 import Cart from "./components/cart/cart";
-
+import Footer from "./components/footer/footer";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +19,7 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <ItemListContainer greeting="BookStore, los mejores libros, al mejor precio." />
+        <Footer />
       </>
     ),
   },
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <ItemListContainer greeting="BookStore, los mejores libros, al mejor precio." />
-        ,
+        <Footer />
       </>
     ),
   },
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <ItemDetailContainer />
+        <Footer />
       </>
     ),
   },
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
       <>
       <Navbar />
       <Cart />
-    
+      <Footer />
       </>
     ),
   },

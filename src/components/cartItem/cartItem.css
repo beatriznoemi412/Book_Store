@@ -1,5 +1,13 @@
-
+.cartItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 .selectedProd{
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 200px;
+}
+.cartItem p{
+    font-size: 1.2rem;
 }

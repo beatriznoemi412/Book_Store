@@ -1,0 +1,12 @@
+.item-detail-container {
+    display: grid;
+    place-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .item-detail-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
