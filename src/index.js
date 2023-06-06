@@ -10,7 +10,27 @@ import Navbar from "./components/navbar/navbar";
 import ItemListContainer from "./components/itemListContainer/itemListContainer";
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer";
 import Cart from "./components/cart/cart";
+import Checkout from "./components/checkout/checkout";
 import Footer from "./components/footer/footer";
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBIyDsuMcVAeGmytCykd5C02gfMbxy7w4U",
+  authDomain: "proyecto-final-react-com-51385.firebaseapp.com",
+  projectId: "proyecto-final-react-com-51385",
+  storageBucket: "proyecto-final-react-com-51385.appspot.com",
+  messagingSenderId: "73863869455",
+  appId: "1:73863869455:web:9d7ac7b401a120e77d9f7a"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 
 const router = createBrowserRouter([
   {
@@ -50,6 +70,16 @@ const router = createBrowserRouter([
       <>
       <Navbar />
       <Cart />
+      <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <>
+      <Navbar />
+      <Checkout />
       <Footer />
       </>
     ),

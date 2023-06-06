@@ -8,9 +8,9 @@
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
-    rgb(235, 145, 10) 0%,
-    rgb(141, 99, 32) 5%,
-    rgba(255, 248, 0, 1) 100%
+    rgb(238, 169, 65) 0%,
+    rgb(255, 190, 85) 5%,
+    rgb(255, 242, 0) 100%
   );
 }
 .navbarLogo {
