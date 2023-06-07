@@ -21,12 +21,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBIyDsuMcVAeGmytCykd5C02gfMbxy7w4U",
-  authDomain: "proyecto-final-react-com-51385.firebaseapp.com",
-  projectId: "proyecto-final-react-com-51385",
-  storageBucket: "proyecto-final-react-com-51385.appspot.com",
-  messagingSenderId: "73863869455",
-  appId: "1:73863869455:web:9d7ac7b401a120e77d9f7a"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
 
 // Initialize Firebase
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       </>
     ),
   },
-
+ 
   {
     path: "/category/:categoryId",
     element: (

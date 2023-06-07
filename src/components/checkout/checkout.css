@@ -12,7 +12,21 @@
     max-width: 600px;
     padding: 1rem;
   }
+  .containerCheck input {
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  .containerCheck button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
   
+  .containerCheck button:hover {
+    opacity: 0.8;
+  }
   .loading {
     display: flex;
     flex-direction: column;
@@ -21,6 +35,7 @@
     align-items: center;
     height: 100vh;
     background: rgb(251, 249, 249);
+    margin-top: 100px;
   }
   
   .loading h1 {
@@ -28,7 +43,7 @@
   }
   
   .loading .wait {
-    margin-top: 0;
+    margin-top: 20px;
   }
   
   .orderId {
@@ -41,10 +56,12 @@
     margin-bottom: 1rem;
   }
   
-  .wait {
-    margin-bottom: 1rem;
+  .prod {
+    margin-top: 20px;
+    text-decoration: none;
+    color: #4caf50;
+    font-weight: bold;
   }
-  
   @media (max-width: 768px) {
     .container {
       padding: 0.5rem;
