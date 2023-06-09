@@ -17,7 +17,7 @@ El formulario tiene validación de campos y confirmación, además de email. Una
 Mi nombre es Beatriz Muñoz, estudiante de CoderHouse de Front End.
 
 
-![](https://cdn.pixabay.com/photo/2018/04/16/09/30/literature-3324023_1280.jpg)
+![]("https://cdn.pixabay.com/photo/2018/04/16/09/30/literature-3324023_1280.jpg")
 
 
 ## ¿Por qué JSX?
