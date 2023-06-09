@@ -17,8 +17,9 @@
   font-family: "EB Garamond", serif;
   font-size: 2rem;
   justify-self: start;
-  margin: 30px;
+  margin: 30px 0 30px 20px;
   margin-top: 4vh;
+
   cursor: pointer;
   color: black;
 }
@@ -39,11 +40,11 @@
 }
 .navbarLogo:hover,
 #navLink:hover {
-  background:  rgb(219, 222, 80);
+  background: rgb(219, 222, 80);
   border-radius: 9px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .navbar {
     height: auto;
     display: flex;
@@ -63,5 +64,27 @@
     margin: 0;
 
     margin-top: 2vh;
+  }
+}
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+  }
+
+  .navbarLogo {
+    margin-top: 4vh;
+    margin-left: 20px;
+  }
+
+  .navLink {
+    margin-top: 0;
+    margin-right: 20px;
+  }
+
+  #navLink {
+    margin-top: 5.5vh;
   }
 }

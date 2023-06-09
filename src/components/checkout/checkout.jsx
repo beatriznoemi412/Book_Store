@@ -1,5 +1,17 @@
-import React, { useContext, useState } from "react";
-import { Timestamp, collection, query, where, getDocs, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
+import { useContext, useState } from "react";
+import {
+  Timestamp,
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  getFirestore,
+  doc,
+  updateDoc,
+  documentId,
+} from "firebase/firestore";
+
 import { CartContext } from "../../context/cartContext";
 import CheckoutForm from "../checkoutForm/checkoutForm";
 import { Link } from "react-router-dom";
@@ -8,8 +20,6 @@ import "./checkout.css";
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
   const [orderId, setOrderId] = useState("");
-  const [outOfStockItems, setOutOfStockItems] = useState([]);
-  const [showOutOfStock, setShowOutOfStock] = useState(false);
 
   const { cart, total, clearCart } = useContext(CartContext);
 
@@ -32,12 +42,11 @@ const Checkout = () => {
         total: total,
         date: Timestamp.fromDate(new Date()),
       };
-
       const db = getFirestore();
 
       const ids = cart.map((prod) => prod.id);
       const querySnapshot = await getDocs(
-        query(collection(db, "items"), where("id", "in", ids))
+        query(collection(db, "items"), where(documentId(), "in", ids))
       );
 
       const products = querySnapshot.docs.map((doc) => ({
@@ -46,29 +55,16 @@ const Checkout = () => {
       }));
 
       const batch = [];
-      const outOfStockItems = []; // Array para almacenar los productos sin stock
 
       cart.forEach((item) => {
         const currentItem = products.find((product) => product.id === item.id);
         if (currentItem && currentItem.stock !== undefined) {
           const finalStock = currentItem.stock - item.amount;
-          if (finalStock < 0) {
-            outOfStockItems.push(currentItem); // Agrega el producto sin stock al array
-          } else {
-            const itemRef = doc(db, "items", item.id);
-            batch.push(updateDoc(itemRef, { stock: finalStock }));
-            console.log(`Stock final: ${finalStock}`);
-          }
+          const itemRef = doc(db, "items", item.id);
+          batch.push(updateDoc(itemRef, { stock: finalStock }));
+          console.log(`Stock final: ${finalStock}`);
         }
       });
-
-      if (outOfStockItems.length > 0) {
-        setOutOfStockItems(outOfStockItems); // Establece los productos sin stock en la variable de estado
-        setShowOutOfStock(true); // Muestr la sección de productos sin stock
-        setLoading(false); // Detiene el loading si hay productos sin stock
-        return; // Sale de la función para evitar continuar con la creación de la orden
-      }
-
       await Promise.all(batch);
 
       const orderRef = await addDoc(collection(db, "orders"), objOrder);
@@ -90,17 +86,6 @@ const Checkout = () => {
     );
   }
 
-  if (showOutOfStock) {
-    console.log("outOfStockItems:", outOfStockItems);
-    return (
-      <div className="containerCheck">
-        <h2>Checkout</h2>
-        <CheckoutForm onConfirm={createOrder} outOfStockItems={outOfStockItems} />
-        
-      </div>
-    );
-  }
-
   if (orderId) {
     return (
       <div className="containerCheck">
@@ -115,7 +100,7 @@ const Checkout = () => {
       </div>
     );
   }
-  console.log("outOfStockItems:", outOfStockItems); 
+
   return (
     <div className="containerCheck">
       <h2>Checkout</h2>
@@ -125,4 +110,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-

@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {createBrowserRouter, RouterProvider } from "react-router-dom"; 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { CartProvider } from "./context/cartContext";
-
 
 import Navbar from "./components/navbar/navbar";
 import ItemListContainer from "./components/itemListContainer/itemListContainer";
@@ -12,7 +11,6 @@ import ItemDetailContainer from "./components/itemDetailContainer/itemDetailCont
 import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
 import Footer from "./components/footer/footer";
-
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -43,7 +41,7 @@ const router = createBrowserRouter([
       </>
     ),
   },
- 
+
   {
     path: "/category/:categoryId",
     element: (
@@ -68,9 +66,9 @@ const router = createBrowserRouter([
     path: "/cart",
     element: (
       <>
-      <Navbar />
-      <Cart />
-      <Footer />
+        <Navbar />
+        <Cart />
+        <Footer />
       </>
     ),
   },
@@ -78,9 +76,9 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: (
       <>
-      <Navbar />
-      <Checkout />
-      <Footer />
+        <Navbar />
+        <Checkout />
+        <Footer />
       </>
     ),
   },
@@ -92,13 +90,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
   <React.StrictMode>
     <CartProvider value={[]}>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </CartProvider>
-  </React.StrictMode>,
- 
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

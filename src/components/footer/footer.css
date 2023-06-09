@@ -1,80 +1,66 @@
-
 footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    height: 20vh; 
-    padding: 20px;
-    background: linear-gradient(
-      90deg,
-      rgb(238, 169, 65) 0%,
-      rgb(255, 190, 85) 5%,
-      rgb(255, 242, 0) 100%
-    );
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 20vh;
+  padding: 10px;
+  background: linear-gradient(
+    90deg,
+    rgb(238, 169, 65) 0%,
+    rgb(255, 190, 85) 5%,
+    rgb(255, 242, 0) 100%
+  );
   color: black;
+}
+.navbarLogo {
+  font-family: "EB Garamond", serif;
+  font-size: 2rem;
+  justify-self: start;
+  cursor: pointer;
+  color: black;
+}
+.networks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.networks > div {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+.networks p {
+  margin: 0;
+}
+.msg:hover {
+  background: rgb(219, 222, 80);
+  border-radius: 10px;
+}
+@media (max-width: 1200px) {
+  footer {
+    height: auto;
+    padding: 2px;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+  footer h3{
+    padding: 40px;
   }
   .navbarLogo {
-    font-family: "EB Garamond", serif;
-    font-size: 2rem;
-    justify-self: start;
-    cursor: pointer;
-    color: black;
-  }
-  .networks{
-    display: flex;
-    justify-content: space-around;
-    align-content: space-around;
+    margin-bottom: 20px;
   }
 
-  .msg:hover{
-    background:  rgb(219, 222, 80);
-    border-radius: 10px;
+  .networks {
+    flex-direction: column;
+    margin-bottom: 10px;
   }
-  
- /* Estilos para pantallas de hasta 600px de ancho */
-@media (max-width: 600px) {
-  footer {
-    display: flex;
- 
-  }
-  footer h3 {
-    font-size: 18px;
-    
-  }
-  
-  footer p {
-    font-size: 14px;
-    margin-bottom: 5px;
+
+  .networks > div {
+    margin: 10px;
   }
 }
-
-/* Estilos para pantallas de 601px a 1024px de ancho */
-@media (min-width: 601px) and (max-width: 1024px) {
-  footer h1 {
-    font-size: 28px;
-  }
-  
-  footer h3 {
-    font-size: 20px;
-  }
-  
-  footer p {
-    font-size: 16px;
-  }
-}
-
-/* Estilos para pantallas de más de 1024px de ancho */
-@media (min-width: 1025px) {
-  footer h1 {
-    font-size: 32px;
-  }
-  
-  footer h3 {
-    font-size: 24px;
-  }
-  
-  footer p {
-    font-size: 18px;
-  }
+.author{
+  margin-top: 15px;
 }

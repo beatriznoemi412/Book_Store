@@ -1,4 +1,3 @@
-
 import Item from "../item/item";
 import "./itemList.css";
 

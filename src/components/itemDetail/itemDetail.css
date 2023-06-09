@@ -1,65 +1,89 @@
-  .itContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    border-radius: 20px;
-    background-color: #f0ea77;
-    margin: 0;
-    max-width: 300px;
-    height: 100vh;
-    
+.itContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #f0ea77;
+  width: 100%;
+  height: 100vh;
+}
+
+.itemSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.item-image {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.item-image img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.linkEnd {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: rgb(175, 177, 46);
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 50px;
+}
+
+.linkEnd:hover {
+  color: white;
+  background-color: rgb(88, 112, 46);
+}
+
+@media (max-width: 767px) {
+  .itContainer {
+    width: auto;
+
+    margin-left: 0;
+    padding: 10px;
+    box-sizing: border-box;
   }
-  .itemSection{
-    width: 100%;
-    
+  .itemSection {
+    width: auto;
   }
   .item-image {
-    margin: 20px 0 20px 70px;
-  }
-  
-  .item-image img {
-    max-width: 80%;
-    height: auto;
-  }
-  
-  .item-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-  }
-  .linkEnd{
-    display: inline-block;
-    padding: 3px 10px;
-    background-color: rgb(175, 177, 46);
-    color: white;
-    font-size: 1.3rem;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-  
-  .linkEnd:hover {
-    color: white;
-    background-color: rgb(88, 112, 46);
+    text-align: center;
   }
 
-  @media (min-width: 768px) {
-    .itContainer {
-      max-width: 400px;
-      height: auto;
-    }
-  
-    .item-image {
-      flex: 0 0 40%;
-      text-align: left;
-      margin-right: 20px;
-      margin-bottom: 0;
-    }
-  
-    .item-info {
-      flex: 0 0 60%;
-      text-align: left;
-    }
+  .item-image img {
+    max-height: 150px;
   }
-  
+}
+@media (max-width: 1400px) {
+  .itContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: auto;
+    height: 700px;
+    padding: 10px;
+  }
+}

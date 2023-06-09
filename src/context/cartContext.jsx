@@ -8,11 +8,13 @@ export const CartContext = createContext({
   calculateTotal: () => {},
   calculateItemSubtotal: () => {},
   total: 0,
-})
+  totalUnits: 0,
+});
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [totalUnits, setTotalUnits] = useState(0);
 
   console.log(cart);
 
@@ -21,7 +23,7 @@ export const CartProvider = ({ children }) => {
     const itemPrice = parseFloat(price);
     return itemQuantity * itemPrice;
   }, []);
-  
+
   const calculateTotal = useCallback(() => {
     let totalAmount = 0;
     cart.forEach((item) => {
@@ -31,10 +33,20 @@ export const CartProvider = ({ children }) => {
     return totalAmount;
   }, [cart, calculateItemSubtotal]);
 
+  const calculateTotalUnits = useCallback(() => {
+    let totalUnits = 0;
+    cart.forEach((item) => {
+      totalUnits += parseInt(item.amount);
+    });
+    return totalUnits;
+  }, [cart]);
+
   useEffect(() => {
     const totalAmount = calculateTotal();
+    const totalUnits = calculateTotalUnits();
     setTotal(totalAmount);
-  }, [cart, calculateTotal]);
+    setTotalUnits(totalUnits);
+  }, [cart, calculateTotal, calculateTotalUnits]);
 
   const addItem = (item, amount) => {
     const isInCart = cart.find((cartItem) => cartItem.id === item.id);
@@ -45,8 +57,6 @@ export const CartProvider = ({ children }) => {
       setCart((prev) => [...prev, { ...item, amount }]);
     }
   };
-
-  const totalAmount = cart.length;
 
   const removeItem = (itemId) => {
     const cartUpdated = cart.filter((prod) => prod.id !== itemId);
@@ -62,12 +72,12 @@ export const CartProvider = ({ children }) => {
       value={{
         cart,
         addItem,
-        totalAmount,
         removeItem,
         clearCart,
         calculateTotal,
         calculateItemSubtotal,
         total,
+        totalUnits,
       }}
     >
       {children}

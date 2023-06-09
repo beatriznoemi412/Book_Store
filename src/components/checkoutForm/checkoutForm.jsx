@@ -1,89 +1,102 @@
 import { useState } from "react";
 import "./checkoutForm.css";
 
-const CheckoutForm = ({ onConfirm, outOfStockItems }) => {
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
-    const [confirmEmail, setConfirmEmail] = useState("");
-    
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-      };
-    
-      const handleConfirmEmailChange = (e) => {
-        setConfirmEmail(e.target.value);
-      };
-    
+const CheckoutForm = ({ onConfirm }) => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
+  
 
-    const handleConfirm = (e) => {
-        e.preventDefault()
+  const handleNameChange = (e) => {
+    const value = e.target.value.replace(/[^A-Za-z ]/g, "");
+    setName(value);
+  };
 
-        if (email !== confirmEmail) {
-            console.log("Los correos electrónicos no coinciden");
-            return;
-          }
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, "");
+    setPhone(value);
+  };
 
-        const userData = {
-            name, phone, email, confirmEmail
-        };
-        onConfirm(userData)
-        };
-       
-        return (
-            <div className="container">
-            <form onSubmit={handleConfirm} className="form">
-                <label className="label">
-                    Nombre
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </label>
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-                <label className="label">
-                    Teléfono
-                    <input
-                        type="text"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                    />
-                </label>
+  const handleConfirmEmailChange = (e) => {
+    setConfirmEmail(e.target.value);
+  };
 
-                <label className="label">
-                    Email
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange=  {handleEmailChange}
-                    />
-                </label>
-                <label className="label">
+  const handleConfirm = (e) => {
+    e.preventDefault();
+
+    if (email !== confirmEmail) {
+      setErrorMessage("Los correos electrónicos no coinciden");
+      return;
+    }
+    if (!name || !phone || !email || !confirmEmail) {
+      setErrorMessage("Por favor, complete todos los campos");
+      return;
+    }
+
+    setErrorMessage(""); // limpia algún error previo mensaje
+
+    const userData = {
+      name,
+      phone,
+      email,
+      confirmEmail,
+    };
+    onConfirm(userData);
+  };
+
+  return (
+    <div className="container">
+      <form onSubmit={handleConfirm} className="form">
+        <label className="label">
+          Nombre
+          <input
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+          />
+        </label>
+
+        <label className="label">
+          Teléfono
+          <input
+            type="text"
+            value={phone}
+            onChange= {handlePhoneChange}//{(e) => setPhone(e.target.value)}
+          />
+        </label>
+
+        <label className="label">
+          Email
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </label>
+        <label className="label">
           Confirmar Email
           <input
             type="email"
             id="confirmEmail"
             value={confirmEmail}
-            onChange={handleConfirmEmailChange} 
+            onChange={handleConfirmEmailChange}
           />
-          </label>
-          <button className="submit" type="submit">Crear Orden</button>
-            </form>
-            {outOfStockItems && outOfStockItems.length > 0 && (
-        <div className="outOfStock">
-          <h3>Productos sin stock:</h3>
-          <ul>
-            {outOfStockItems.map((item) => (
-              <li key={item.id}>{item.title}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+        </label>
+
+        {errorMessage && <p className="error">{errorMessage}</p>}
+
+        <button className="submit" type="submit">
+          Crear Orden
+        </button>
+      </form>
     </div>
   );
 };
-    
-
 export default CheckoutForm;

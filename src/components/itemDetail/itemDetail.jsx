@@ -12,7 +12,7 @@ const ItemDetail = ({
   category,
   img,
   stock,
-  description
+  description,
 }) => {
   const [amountEntered, setAmountEntered] = useState(0);
   const { addItem } = useContext(CartContext);
@@ -33,22 +33,24 @@ const ItemDetail = ({
   return (
     <div className="itContainer">
       <section className="itemSection">
-      <div className="item-image">
-        <img src={img} alt={title} />
-      </div>
+        <div className="item-image">
+          <img src={img} alt={title} />
+        </div>
 
-      <div className="item-info">
-        <h2>{title}</h2> 
-        <div>Precio: {price}</div>
-        <div>Categoría: {category}</div>
-        <div>Descripción: {description}</div>
+        <div className="item-info">
+          <h2>{title}</h2>
+          <div>Precio: {price}</div>
+          <div>Categoría: {category}</div>
+          <div>Descripción: {description}</div>
 
-        {amountEntered > 0 ? (
-          <Link  to="/cart" className="linkEnd">Terminar Compra</Link>
-        ) : (
-          <ItemCount initial={1} stock={stock} onAdd={handleEntered} />
-        )}
-      </div>
+          {amountEntered > 0 ? (
+            <Link to="/cart" className="linkEnd">
+              Terminar Compra
+            </Link>
+          ) : (
+            <ItemCount initial={1} stock={stock} onAdd={handleEntered} />
+          )}
+        </div>
       </section>
     </div>
   );

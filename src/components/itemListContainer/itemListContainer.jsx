@@ -1,17 +1,22 @@
-
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ItemList from "../itemList/itemList";
 import { useParams } from "react-router-dom";
-import { getDocs, collection, getFirestore, query, where} from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
   const banner = {
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "84vh",
-    backgroundImage:`url(${"https://cdn.pixabay.com/photo/2018/04/16/09/30/literature-3324023_1280.jpg"})`,
-  }
-  const bannerContainer ={
+    backgroundImage: `url(${"https://cdn.pixabay.com/photo/2018/04/16/09/30/literature-3324023_1280.jpg"})`,
+  };
+  const bannerContainer = {
     textAlign: "center",
     padding: "15% 0",
     color: "white",
@@ -21,42 +26,35 @@ const ItemListContainer = ({greeting}) => {
   };
 
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  const { categoryId } = useParams()
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    setLoading(true)
     const db = getFirestore();
 
     const collectionRef = categoryId
-    ? query(collection(db, "items"), where("category", "==", categoryId))
-    : collection(db, "items")
+      ? query(collection(db, "items"), where("category", "==", categoryId))
+      : collection(db, "items");
 
     getDocs(collectionRef)
-    .then((snapshot) => {
-      setProducts(() => 
-        snapshot.docs.map((doc) =>({ id: doc.id, ...doc.data()}))
-      );
-      
-    })
-    .catch((error)=> {
-      console.log(error);
-    })
-    .finally(() => {
-      setLoading(false)
-    });
+      .then((snapshot) => {
+        setProducts(() =>
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [categoryId]);
   return (
     <>
-    <div className="banner" style={banner}>
-      <div className="bannerContainer" style={bannerContainer}>
-        {greeting}
+      <div className="banner" style={banner}>
+        <div className="bannerContainer" style={bannerContainer}>
+          {greeting}
         </div>
-        </div>
-      <ItemList products={products}/>
+      </div>
+      <ItemList products={products} />
     </>
-    )
-}
-export default ItemListContainer
-
+  );
+};
+export default ItemListContainer;
